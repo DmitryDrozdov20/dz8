@@ -4,11 +4,16 @@
   become: yes
 
   tasks:
+  - name: Update all packages to their latest version
+    apt:
+    name: "*"
+    state: latest
+    
   - name: Ensure java is present
     apt:
      name: default-jdk
      state: present
-  tasks:
+
   - name: Ensure maven is present
     apt:
      name: maven
