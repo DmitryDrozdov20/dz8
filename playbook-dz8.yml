@@ -16,7 +16,8 @@
     apt:
      name: maven
      state: present
+     
   - git:
-    repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-     dest: /home
+      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+      dest: /home
   
