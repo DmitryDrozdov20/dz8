@@ -9,11 +9,6 @@
      name: "*"
      state: latest
 
-  - name: Ensure python is present
-    apt:
-     name: python
-     state: present
-
   - name: Ensure java is present
     apt:
      name: default-jdk
