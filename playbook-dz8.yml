@@ -1,0 +1,11 @@
+---
+- name: install app (java, maven)
+  hosts: web
+  become: yes
+
+  tasks:
+  - name: Ensure java & maven is present
+    apt:
+     name: default-jdk && maven
+     state: present
+
