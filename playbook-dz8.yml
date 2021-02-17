@@ -4,8 +4,8 @@
   become: yes
 
   tasks:
-  - name: Ensure java & maven is present
+  - name: Ensure java is present
     apt:
-     name: default-jdk && maven
+     name: default-jdk
      state: present
 
