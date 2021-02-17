@@ -3,16 +3,16 @@
   hosts: build
   become: yes
 
-  tasks:
+tasks:
+  - name: Update all packages to their latest version
+    apt:
+     name: "*"
+     state: latest
+
   - name: Ensure python is present
     apt:
      name: python
      state: present
-
-  - name: Update all packages to their latest version
-    apt:
-    name: "*"
-    state: latest
 
   - name: Ensure java is present
     apt:
