@@ -5,8 +5,7 @@
 
   tasks:
   - name: Update all packages to their latest version
-    apt:
-     name: update_cache=yes force_apt_get=yes cache_valid_time=3600
+    apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
 
   - name: Ensure java is present
     apt:
