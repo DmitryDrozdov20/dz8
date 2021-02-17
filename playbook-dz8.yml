@@ -8,4 +8,8 @@
     apt:
      name: default-jdk
      state: present
-
+  tasks:
+  - name: Ensure maven is present
+    apt:
+     name: maven
+     state: present
