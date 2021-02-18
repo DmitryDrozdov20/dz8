@@ -26,9 +26,9 @@
     args:
       chdir: /home/repo
 
--name: install app on prod (tomcat)
- hosts: prod
- become: yes
+- name: install app on prod (tomcat)
+  hosts: prod
+  become: yes
 
   tasks:
   - name: Update all packages to their latest version
