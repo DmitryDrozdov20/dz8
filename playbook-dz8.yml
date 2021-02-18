@@ -40,7 +40,7 @@
      state: present
   
   - name: Ensure tomcat is started
-    apt:
+    service:
      name: tomcat9
      state: started
 
