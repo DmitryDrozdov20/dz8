@@ -1,5 +1,5 @@
 ---
-- name: install app (java, maven)
+- name: install app on build(java, maven)
   hosts: build
   become: yes
 
@@ -25,3 +25,32 @@
     shell: mvn package
     args:
       chdir: /home/repo
+
+-name: install app on prod (tomcat)
+ hosts: prod
+ become: yes
+
+  tasks:
+  - name: Update all packages to their latest version
+    apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+
+  - name: Ensure tomcat is present
+    apt:
+     name: tomcat
+     state: present
+  
+  - name: Ensure tomcat is started
+    apt:
+     name: tomcat
+     state: started
+
+-name: copy war-file on prod
+ hosts: build
+ become: yes
+  
+  tasks:
+  - name: Copy war-file on prod
+    shell: cp /home/repo/target/hello-1.0.war prod:/var/lib/tomcat9/webapp
+
+  
+
