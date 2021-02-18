@@ -26,11 +26,12 @@
     apt:
      name: rsync
      state: present
+
   - name: Ensure reository clone to host
-  - git:
-      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-      dest: /home/repo
-      clone: yes
+    git:
+     repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+     dest: /home/repo
+     clone: yes
   
   - name: Change the working directory to somedir/ before executing the command.
     shell: mvn package
