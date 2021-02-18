@@ -44,9 +44,9 @@
      name: tomcat
      state: started
 
--name: copy war-file on prod
- hosts: build
- become: yes
+- name: copy war-file on prod
+  hosts: build
+  become: yes
   
   tasks:
   - name: Copy war-file on prod
