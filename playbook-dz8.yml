@@ -16,15 +16,21 @@
     apt:
      name: maven
      state: present
+
+  - name: Ensure git is present
+    apt:
+     name: git
+     state: present
   
   - name: Ensure rsync is present
     apt:
      name: rsync
      state: present
-
+  - name: Ensure reository clone to host
   - git:
       repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
       dest: /home/repo
+      clone: yes
   
   - name: Change the working directory to somedir/ before executing the command.
     shell: mvn package
@@ -58,7 +64,7 @@
     synchronize:
      src: /home/repo/target/hello-1.0.war
      dest: /var/lib/tomcat9/webap
-    delegate_to: build
+    delegate_to: 34.89.111.132
 
   
 
