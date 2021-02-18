@@ -65,7 +65,7 @@
     synchronize:
      src: /home/repo/target/hello-1.0.war
      dest: /var/lib/tomcat9/webap
-    delegate_to: 34.89.111.132
+    delegate_to: 104.155.122.184
 
   
 
