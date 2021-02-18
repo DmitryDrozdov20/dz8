@@ -54,11 +54,16 @@
      name: rsync
      state: present
 
-  - name: Copy war-file on prod
-    synchronize:
-     src: /home/repo/target/hello-1.0.war
-     dest: /var/lib/tomcat9/webap
-    delegate_to: build
+- name: copy war-file
+  hosts: all
+  tasks:
+   - name: Fetch the file from the build to master
+       run_once: yes
+       fetch: src=/home/repo/target/hello-1.0.war dest=tmp/ flat=yes
+       when: "{{ ansible_hostname == 'build' }}"
+   - name: Copy the file from the ansible to nodes
+       copy: src=tmp/hello-1.0.war dest=/var/lib/tomcat9/webap
+       when: "{{ ansible_hostname == 'prod' }}"
 
 
   
