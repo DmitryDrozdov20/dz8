@@ -36,7 +36,7 @@
 
   - name: Ensure tomcat is present
     apt:
-     name: tomcat
+     name: tomcat9
      state: present
   
   - name: Ensure tomcat is started
