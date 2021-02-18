@@ -41,7 +41,7 @@
   
   - name: Ensure tomcat is started
     apt:
-     name: tomcat
+     name: tomcat9
      state: started
 
 - name: copy war-file on prod
