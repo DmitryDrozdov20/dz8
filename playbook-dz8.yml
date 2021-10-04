@@ -30,13 +30,13 @@
   - name: Ensure reository clone to host
     git:
      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-     dest: /home/repo
+     dest: /home/boxfuse
      clone: yes
   
   - name: Change the working directory to somedir/ before executing the command.
     shell: mvn package
     args:
-      chdir: /home/repo
+      chdir: /home/boxfuse
 
 - name: install app on prod (tomcat)
   hosts: prod
@@ -63,9 +63,9 @@
 
   - name: Copy war-file on prod
     synchronize:
-     src: /home/repo/target/hello-1.0.war
+     src: /home/boxfuse/target/hello-1.0.war
      dest: /var/lib/tomcat9/webapps
-    delegate_to: 34.89.111.132
+    delegate_to: 130.193.53.97
 
   
 
