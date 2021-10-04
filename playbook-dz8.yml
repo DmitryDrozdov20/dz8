@@ -62,10 +62,8 @@
      state: present
 
   - name: Copy war-file on prod
-    synchronize:
-     src: /home/boxfuse/target/hello-1.0.war
-     dest: /var/lib/tomcat9/webapps
-    delegate_to: 130.193.53.97
+    synchronize: src=/home/boxfuse/target/hello-1.0.war dest=/var/lib/tomcat9/webapps
+    delegate_to: 62.84.122.178
 
   
 
